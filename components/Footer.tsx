@@ -60,7 +60,7 @@ export default function Footer() {
                 Lista de Espera
               </Link>
               <Link
-                href="/#faq"
+                href="/faq"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 FAQ
