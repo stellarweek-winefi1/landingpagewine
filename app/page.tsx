@@ -27,11 +27,6 @@ const PhaseTwo = dynamic(() => import("@/components/PhaseTwo"), {
   loading: () => <div className="h-96 bg-gray-50" />,
 });
 
-const FAQSection = dynamic(() => import("@/components/FAQSection"), {
-  ssr: false,
-  loading: () => <div className="h-96 bg-white" />,
-});
-
 const Footer = dynamic(() => import("@/components/Footer"), {
   ssr: false,
 });
@@ -44,7 +39,6 @@ export default function Home() {
       <SolutionSection />
       <BenefitsSection />
       <PhaseTwo />
-      <FAQSection />
       <Footer />
     </main>
   );

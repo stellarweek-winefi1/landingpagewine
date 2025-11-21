@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { Wine, Menu, X } from "lucide-react";
+import { Wine, Menu, X, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navigation() {
@@ -47,6 +47,11 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  const navItems = [
+    { href: "/", label: "Inicio", icon: Wine },
+    { href: "/faq", label: "FAQ", icon: HelpCircle },
+  ];
+
   const ctaItem = { href: "/waitlist", label: "Unirme al Waitlist", icon: Wine };
 
   return (
@@ -68,8 +73,38 @@ export default function Navigation() {
             <span className="text-lg font-semibold whitespace-nowrap">Vinifica</span>
           </Link>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:flex items-center">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-6">
+            {/* Navigation Links */}
+            <ul className="flex items-center gap-6">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                const Icon = item.icon;
+
+                return (
+                  <li key={item.href} className="relative">
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-2 text-sm font-medium transition-colors",
+                        isActive
+                          ? "text-black font-semibold"
+                          : "text-gray-700 hover:text-black"
+                      )}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      <Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </Link>
+                    {isActive && (
+                      <span className="absolute -bottom-px left-0 right-0 h-[2px] bg-black" />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* CTA Button */}
             <Link
               href={ctaItem.href}
               className={cn(
@@ -100,22 +135,50 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile CTA Menu */}
+        {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 bg-white py-4 px-4">
-            <Link
-              href={ctaItem.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={cn(
-                "flex items-center justify-center gap-3 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 w-full touch-manipulation",
-                pathname === ctaItem.href
-                  ? "bg-black text-white shadow-lg"
-                  : "bg-black text-white hover:bg-gray-800 shadow-md"
-              )}
-            >
-              <ctaItem.icon className="w-5 h-5 flex-shrink-0" strokeWidth={1.5} aria-hidden="true" />
-              <span>{ctaItem.label}</span>
-            </Link>
+          <div className="lg:hidden border-t border-gray-200 bg-white">
+            <ul className="flex flex-col py-2">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                const Icon = item.icon;
+
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(
+                        "flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors touch-manipulation",
+                        isActive
+                          ? "text-black font-semibold bg-gray-50"
+                          : "text-gray-700 hover:text-black hover:bg-gray-50"
+                      )}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      <Icon className="w-5 h-5 flex-shrink-0" strokeWidth={1.5} aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+              {/* Mobile CTA */}
+              <li className="mt-2 px-4">
+                <Link
+                  href={ctaItem.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "flex items-center justify-center gap-3 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 w-full touch-manipulation",
+                    pathname === ctaItem.href
+                      ? "bg-black text-white shadow-lg"
+                      : "bg-black text-white hover:bg-gray-800 shadow-md"
+                  )}
+                >
+                  <ctaItem.icon className="w-5 h-5 flex-shrink-0" strokeWidth={1.5} aria-hidden="true" />
+                  <span>{ctaItem.label}</span>
+                </Link>
+              </li>
+            </ul>
           </div>
         )}
       </div>
