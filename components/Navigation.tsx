@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { Wine, Menu, X, HelpCircle } from "lucide-react";
+import { Wine, Menu, X, HelpCircle, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navigation() {
@@ -104,6 +104,18 @@ export default function Navigation() {
               })}
             </ul>
 
+            {/* Demo Button */}
+            <button
+              onClick={() => {
+                // Add your demo functionality here
+                console.log('Demo button clicked')
+              }}
+              className="flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 bg-gray-100 text-gray-900 hover:bg-gray-200 shadow-md hover:shadow-lg"
+            >
+              <PlayCircle className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
+              <span>Demo</span>
+            </button>
+
             {/* CTA Button */}
             <Link
               href={ctaItem.href}
@@ -162,6 +174,20 @@ export default function Navigation() {
                   </li>
                 );
               })}
+              {/* Mobile Demo Button */}
+              <li className="mt-2 px-4">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    // Add your demo functionality here
+                    console.log('Demo button clicked')
+                  }}
+                  className="flex items-center justify-center gap-3 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 w-full touch-manipulation bg-gray-100 text-gray-900 hover:bg-gray-200 shadow-md"
+                >
+                  <PlayCircle className="w-5 h-5 flex-shrink-0" strokeWidth={1.5} aria-hidden="true" />
+                  <span>Demo</span>
+                </button>
+              </li>
               {/* Mobile CTA */}
               <li className="mt-2 px-4">
                 <Link

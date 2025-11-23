@@ -105,8 +105,8 @@ export default function PhaseTwo() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-gray-800 font-medium text-lg italic">
-                "Imagina vender tus mejores lotes con trazabilidad verificada, sin intermediarios,
-                directamente a compradores que valoran la autenticidad."
+                &ldquo;Imagina vender tus mejores lotes con trazabilidad verificada, sin intermediarios,
+                directamente a compradores que valoran la autenticidad.&rdquo;
               </p>
             </motion.div>
           </motion.div>
