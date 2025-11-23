@@ -102,8 +102,8 @@ export default function ProblemSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <p className="text-gray-700 font-medium italic">
-                "Cada lote dañado no solo es una pérdida económica, es un golpe a tu reputación.
-                Y sin evidencia, recuperar esa confianza es casi imposible."
+                &ldquo;Cada lote dañado no solo es una pérdida económica, es un golpe a tu reputación.
+                Y sin evidencia, recuperar esa confianza es casi imposible.&rdquo;
               </p>
             </motion.div>
           </motion.div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Mail, Globe } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState("");
@@ -50,13 +51,13 @@ export default function WaitlistPage() {
           <p className="text-lg text-gray-600 mb-8">
             Te hemos agregado a la lista de espera. Te notificaremos por email cuando lancemos.
           </p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 text-black font-semibold hover:gap-3 transition-all"
           >
             Volver al inicio
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     );
