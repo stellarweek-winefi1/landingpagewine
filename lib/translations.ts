@@ -18,6 +18,9 @@ export const translations = {
         quickSetup: 'Implementación en minutos',
         premium: 'Trazabilidad premium',
       },
+      altText: {
+        vineyard: 'Viñedo premium',
+      },
     },
     problem: {
       title: 'El problema que enfrentas',
@@ -45,6 +48,114 @@ export const translations = {
         },
       ],
       quote: 'Cada lote dañado no solo es una pérdida económica, es un golpe a tu reputación. Y sin evidencia, recuperar esa confianza es casi imposible.',
+      altText: {
+        winery: 'Bodega de vinos',
+      },
+    },
+    solution: {
+      title: 'La solución: Vinifica',
+      description: 'Trazabilidad premium sin complejidad. Vinifica te permite rastrear cada lote desde el viñedo hasta el consumidor final, identificando cualquier problema en el camino.',
+      steps: [
+        {
+          title: 'Coloca un QR en el lote',
+          description: 'Simple. Sin hardware especial. Solo un código QR único por lote.',
+        },
+        {
+          title: 'Escanea desde cualquier dispositivo',
+          description: 'Teléfono, tablet, o cualquier dispositivo con cámara. Registra eventos en segundos.',
+        },
+        {
+          title: 'Registra cada etapa',
+          description: 'Viñedo, producción, bodega, almacenamiento, transporte, distribución. Todo rastreado.',
+        },
+        {
+          title: 'Identifica el punto exacto',
+          description: '¿Dónde se dañó el lote? Vinifica te muestra exactamente en qué momento y lugar.',
+        },
+        {
+          title: 'Protege tu reputación',
+          description: 'Con evidencia verificable, puedes demostrar que cumpliste con todos los estándares.',
+        },
+      ],
+      noHardwareTitle: 'Sin hardware especial. Sin complicaciones.',
+      noHardwareDescription: 'Vinifica funciona con cualquier smartphone. No necesitas sensores costosos ni equipos especiales. Solo tu teléfono y los QR de tus lotes.',
+      features: [
+        'Implementación inmediata, sin instalaciones complejas',
+        'Compatible con todos los dispositivos móviles',
+        'Registros en tiempo real desde cualquier lugar',
+        'Preparado para exportación y certificaciones',
+      ],
+      cta: 'Quiero acceso temprano',
+      altText: {
+        winemaking: 'Proceso de vinificación',
+      },
+    },
+    benefits: {
+      title: 'Beneficios para tu bodega',
+      description: 'Vinifica no solo te da trazabilidad. Te da control, credibilidad y la tranquilidad de saber que cada lote está protegido.',
+      items: [
+        {
+          title: 'Seguridad Total',
+          description: 'Protege cada lote con trazabilidad verificable en cada etapa del proceso.',
+        },
+        {
+          title: 'Credibilidad Profesional',
+          description: 'Demuestra a tus clientes y distribuidores que cumples con los más altos estándares.',
+        },
+        {
+          title: 'Control Absoluto',
+          description: 'Monitorea tus lotes en tiempo real, desde el viñedo hasta el consumidor final.',
+        },
+        {
+          title: 'Evidencia para Reclamos',
+          description: 'Con registros verificables, puedes demostrar exactamente dónde ocurrió cualquier problema.',
+        },
+        {
+          title: 'Preparado para Exportación',
+          description: 'Cumple con certificaciones internacionales y facilita la documentación de aduanas.',
+        },
+        {
+          title: 'Optimización de Procesos',
+          description: 'Identifica cuellos de botella y mejora continuamente tu cadena de producción.',
+        },
+        {
+          title: 'Uso Desde Cualquier Móvil',
+          description: 'Tu equipo puede registrar eventos sin necesidad de capacitación técnica compleja.',
+        },
+        {
+          title: 'Trazabilidad Premium',
+          description: 'Eleva la percepción de tus vinos con tecnología de certificación de última generación.',
+        },
+      ],
+      ctaTitle: 'Empieza a proteger tus lotes hoy',
+      ctaDescription: 'Únete a los vinicultores que ya están usando trazabilidad premium para proteger su reputación.',
+      ctaButton: 'Notificarme al lanzar',
+    },
+    phaseTwo: {
+      badge: 'En desarrollo',
+      title: 'Lo que viene: Vende tus lotes premium',
+      description: 'En la segunda fase, Vinifica se convertirá en tu plataforma de venta directa. Podrás comercializar tus lotes trazables con compradores que valoran la autenticidad y la transparencia.',
+      comingSoon: 'Próximamente',
+      phaseLabel: 'Fase 2: Venta de Lotes',
+      features: [
+        {
+          title: 'Marketplace Integrado',
+          description: 'Vende tus lotes premium directamente desde la plataforma.',
+        },
+        {
+          title: 'Precio Justo',
+          description: 'Controla el precio de tus vinos sin intermediarios que afecten tu margen.',
+        },
+        {
+          title: 'Alcance Global',
+          description: 'Conecta con compradores internacionales interesados en vinos trazables.',
+        },
+        {
+          title: 'Transacciones Seguras',
+          description: 'Pagos verificados y seguros para proteger tu inversión.',
+        },
+      ],
+      quote: 'Imagina vender tus mejores lotes con trazabilidad verificada, sin intermediarios, directamente a compradores que valoran la autenticidad.',
     },
     faq: {
       title: 'Preguntas frecuentes',
@@ -156,6 +267,9 @@ export const translations = {
         quickSetup: 'Setup in minutes',
         premium: 'Premium traceability',
       },
+      altText: {
+        vineyard: 'Premium vineyard',
+      },
     },
     problem: {
       title: 'The problem you face',
@@ -183,6 +297,114 @@ export const translations = {
         },
       ],
       quote: 'Every damaged lot is not just an economic loss, it\'s a blow to your reputation. And without evidence, regaining that trust is almost impossible.',
+      altText: {
+        winery: 'Wine cellar',
+      },
+    },
+    solution: {
+      title: 'The solution: Vinifica',
+      description: 'Premium traceability without complexity. Vinifica allows you to track each lot from the vineyard to the final consumer, identifying any problem along the way.',
+      steps: [
+        {
+          title: 'Place a QR on the lot',
+          description: 'Simple. No special hardware. Just a unique QR code per lot.',
+        },
+        {
+          title: 'Scan from any device',
+          description: 'Phone, tablet, or any device with a camera. Register events in seconds.',
+        },
+        {
+          title: 'Register each stage',
+          description: 'Vineyard, production, winery, storage, transport, distribution. Everything tracked.',
+        },
+        {
+          title: 'Identify the exact point',
+          description: 'Where was the lot damaged? Vinifica shows you exactly when and where.',
+        },
+        {
+          title: 'Protect your reputation',
+          description: 'With verifiable evidence, you can prove that you met all standards.',
+        },
+      ],
+      noHardwareTitle: 'No special hardware. No complications.',
+      noHardwareDescription: 'Vinifica works with any smartphone. You don\'t need expensive sensors or special equipment. Just your phone and your lot QR codes.',
+      features: [
+        'Immediate implementation, no complex installations',
+        'Compatible with all mobile devices',
+        'Real-time records from anywhere',
+        'Ready for export and certifications',
+      ],
+      cta: 'I want early access',
+      altText: {
+        winemaking: 'Winemaking process',
+      },
+    },
+    benefits: {
+      title: 'Benefits for your winery',
+      description: 'Vinifica doesn\'t just give you traceability. It gives you control, credibility, and peace of mind knowing that every lot is protected.',
+      items: [
+        {
+          title: 'Total Security',
+          description: 'Protect every lot with verifiable traceability at every stage of the process.',
+        },
+        {
+          title: 'Professional Credibility',
+          description: 'Show your clients and distributors that you meet the highest standards.',
+        },
+        {
+          title: 'Absolute Control',
+          description: 'Monitor your lots in real-time, from vineyard to final consumer.',
+        },
+        {
+          title: 'Evidence for Claims',
+          description: 'With verifiable records, you can prove exactly where any problem occurred.',
+        },
+        {
+          title: 'Ready for Export',
+          description: 'Meet international certifications and facilitate customs documentation.',
+        },
+        {
+          title: 'Process Optimization',
+          description: 'Identify bottlenecks and continuously improve your production chain.',
+        },
+        {
+          title: 'Use from Any Mobile',
+          description: 'Your team can register events without complex technical training.',
+        },
+        {
+          title: 'Premium Traceability',
+          description: 'Elevate the perception of your wines with cutting-edge certification technology.',
+        },
+      ],
+      ctaTitle: 'Start protecting your lots today',
+      ctaDescription: 'Join the winemakers who are already using premium traceability to protect their reputation.',
+      ctaButton: 'Notify me at launch',
+    },
+    phaseTwo: {
+      badge: 'In development',
+      title: 'What\'s coming: Sell your premium lots',
+      description: 'In the second phase, Vinifica will become your direct sales platform. You\'ll be able to market your traceable lots to buyers who value authenticity and transparency.',
+      comingSoon: 'Coming soon',
+      phaseLabel: 'Phase 2: Lot Sales',
+      features: [
+        {
+          title: 'Integrated Marketplace',
+          description: 'Sell your premium lots directly from the platform.',
+        },
+        {
+          title: 'Fair Price',
+          description: 'Control the price of your wines without intermediaries affecting your margin.',
+        },
+        {
+          title: 'Global Reach',
+          description: 'Connect with international buyers interested in traceable wines.',
+        },
+        {
+          title: 'Secure Transactions',
+          description: 'Verified and secure payments to protect your investment.',
+        },
+      ],
+      quote: 'Imagine selling your best lots with verified traceability, without intermediaries, directly to buyers who value authenticity.',
     },
     faq: {
       title: 'Frequently Asked Questions',

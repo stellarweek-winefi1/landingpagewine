@@ -2,50 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Shield, TrendingUp, Target, FileCheck, Globe, Zap, Users, Award } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
+import Link from "next/link";
 
 export default function BenefitsSection() {
-  const benefits = [
-    {
-      icon: Shield,
-      title: "Seguridad Total",
-      description: "Protege cada lote con trazabilidad verificable en cada etapa del proceso.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Credibilidad Profesional",
-      description: "Demuestra a tus clientes y distribuidores que cumples con los más altos estándares.",
-    },
-    {
-      icon: Target,
-      title: "Control Absoluto",
-      description: "Monitorea tus lotes en tiempo real, desde el viñedo hasta el consumidor final.",
-    },
-    {
-      icon: FileCheck,
-      title: "Evidencia para Reclamos",
-      description: "Con registros verificables, puedes demostrar exactamente dónde ocurrió cualquier problema.",
-    },
-    {
-      icon: Globe,
-      title: "Preparado para Exportación",
-      description: "Cumple con certificaciones internacionales y facilita la documentación de aduanas.",
-    },
-    {
-      icon: Zap,
-      title: "Optimización de Procesos",
-      description: "Identifica cuellos de botella y mejora continuamente tu cadena de producción.",
-    },
-    {
-      icon: Users,
-      title: "Uso Desde Cualquier Móvil",
-      description: "Tu equipo puede registrar eventos sin necesidad de capacitación técnica compleja.",
-    },
-    {
-      icon: Award,
-      title: "Trazabilidad Premium",
-      description: "Eleva la percepción de tus vinos con tecnología de certificación de última generación.",
-    },
-  ];
+  const { t } = useLanguage();
+  
+  const icons = [Shield, TrendingUp, Target, FileCheck, Globe, Zap, Users, Award];
+  const benefits = t.benefits.items.map((benefit, index) => ({
+    icon: icons[index],
+    title: benefit.title,
+    description: benefit.description,
+  }));
 
   return (
     <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
@@ -59,11 +27,10 @@ export default function BenefitsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Beneficios para tu bodega
+            {t.benefits.title}
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Vinifica no solo te da trazabilidad. Te da control, credibilidad y la tranquilidad de saber
-            que cada lote está protegido.
+            {t.benefits.description}
           </p>
         </motion.div>
 
@@ -101,19 +68,19 @@ export default function BenefitsSection() {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Empieza a proteger tus lotes hoy
+            {t.benefits.ctaTitle}
           </h3>
           <p className="text-gray-300 text-lg mb-6 max-w-2xl mx-auto">
-            Únete a los vinicultores que ya están usando trazabilidad premium para proteger su reputación.
+            {t.benefits.ctaDescription}
           </p>
-          <motion.a
-            href="/waitlist"
-            className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Notificarme al lanzar
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/waitlist"
+              className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              {t.benefits.ctaButton}
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

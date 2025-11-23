@@ -28,7 +28,7 @@ export default function ProblemSection() {
           >
             <Image
               src="/assets/nathan-blackaby-TLccRhX4iD4-unsplash.jpg"
-              alt="Bodega de vinos"
+              alt={t.problem.altText.winery}
               fill
               className="object-cover"
             />

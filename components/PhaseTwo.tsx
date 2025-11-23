@@ -3,30 +3,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShoppingBag, DollarSign, TrendingUp, Lock } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function PhaseTwo() {
-  const features = [
-    {
-      icon: ShoppingBag,
-      title: "Marketplace Integrado",
-      description: "Vende tus lotes premium directamente desde la plataforma.",
-    },
-    {
-      icon: DollarSign,
-      title: "Precio Justo",
-      description: "Controla el precio de tus vinos sin intermediarios que afecten tu margen.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Alcance Global",
-      description: "Conecta con compradores internacionales interesados en vinos trazables.",
-    },
-    {
-      icon: Lock,
-      title: "Transacciones Seguras",
-      description: "Pagos verificados y seguros para proteger tu inversión.",
-    },
-  ];
+  const { t } = useLanguage();
+  
+  const icons = [ShoppingBag, DollarSign, TrendingUp, Lock];
+  const features = t.phaseTwo.features.map((feature, index) => ({
+    icon: icons[index],
+    title: feature.title,
+    description: feature.description,
+  }));
 
   return (
     <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
@@ -42,15 +29,15 @@ export default function PhaseTwo() {
           >
             <Image
               src="/assets/gabriel-santos--RsUaWZtAhY-unsplash.jpg"
-              alt="Viñedo premium"
+              alt={t.hero.altText.vineyard}
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
               <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
-                <p className="text-gray-900 font-semibold text-lg">Próximamente</p>
-                <p className="text-gray-600 text-sm mt-1">Fase 2: Venta de Lotes</p>
+                <p className="text-gray-900 font-semibold text-lg">{t.phaseTwo.comingSoon}</p>
+                <p className="text-gray-600 text-sm mt-1">{t.phaseTwo.phaseLabel}</p>
               </div>
             </div>
           </motion.div>
@@ -63,14 +50,13 @@ export default function PhaseTwo() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-block bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              En desarrollo
+              {t.phaseTwo.badge}
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Lo que viene: Vende tus lotes premium
+              {t.phaseTwo.title}
             </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              En la segunda fase, Vinifica se convertirá en tu plataforma de venta directa. Podrás comercializar
-              tus lotes trazables con compradores que valoran la autenticidad y la transparencia.
+              {t.phaseTwo.description}
             </p>
 
             <div className="space-y-5 mb-10">
@@ -105,8 +91,7 @@ export default function PhaseTwo() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-gray-800 font-medium text-lg italic">
-                &ldquo;Imagina vender tus mejores lotes con trazabilidad verificada, sin intermediarios,
-                directamente a compradores que valoran la autenticidad.&rdquo;
+                &ldquo;{t.phaseTwo.quote}&rdquo;
               </p>
             </motion.div>
           </motion.div>

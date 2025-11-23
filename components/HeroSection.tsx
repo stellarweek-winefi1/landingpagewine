@@ -18,7 +18,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/assets/sue-winston-bYvmOw-3kqE-unsplash.jpg"
-          alt="Viñedo premium"
+          alt={t.hero.altText.vineyard}
           fill
           className="object-cover opacity-5"
           priority
