@@ -3,35 +3,16 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { AlertTriangle, TrendingDown, HelpCircle, Globe, MapPin } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function ProblemSection() {
-  const problems = [
-    {
-      icon: AlertTriangle,
-      title: "Daños en lotes",
-      description: "Temperatura, vibración, errores de almacenaje. Tus vinos están expuestos a múltiples riesgos.",
-    },
-    {
-      icon: TrendingDown,
-      title: "Pérdidas económicas",
-      description: "Un lote dañado puede representar miles de dólares en pérdidas y afectar tu reputación.",
-    },
-    {
-      icon: HelpCircle,
-      title: "Falta de evidencia",
-      description: "¿Dónde ocurrió el daño? Sin trazabilidad, es imposible identificar el problema.",
-    },
-    {
-      icon: Globe,
-      title: "Riesgo en exportación",
-      description: "El transporte internacional expone tus vinos a condiciones que no puedes controlar.",
-    },
-    {
-      icon: MapPin,
-      title: "Punto ciego",
-      description: "Sin visibilidad en la cadena, no sabes qué pasa con tu producto después de salir de bodega.",
-    },
-  ];
+  const { t } = useLanguage();
+  
+  const problems = t.problem.problems.map((problem, index) => ({
+    icon: [AlertTriangle, TrendingDown, HelpCircle, Globe, MapPin][index],
+    title: problem.title,
+    description: problem.description,
+  }));
 
   return (
     <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
@@ -63,11 +44,10 @@ export default function ProblemSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              El problema que enfrentas
+              {t.problem.title}
             </h2>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-              Como vinicultor, sabes que proteger tus lotes es fundamental. Pero sin trazabilidad,
-              estás navegando a ciegas.
+              {t.problem.description}
             </p>
 
             <div className="space-y-6">
@@ -102,8 +82,7 @@ export default function ProblemSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <p className="text-gray-700 font-medium italic">
-                &ldquo;Cada lote dañado no solo es una pérdida económica, es un golpe a tu reputación.
-                Y sin evidencia, recuperar esa confianza es casi imposible.&rdquo;
+                &ldquo;{t.problem.quote}&rdquo;
               </p>
             </motion.div>
           </motion.div>

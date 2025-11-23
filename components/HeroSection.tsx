@@ -4,8 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+  
   return (
     <section
       className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 py-20 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
@@ -31,9 +34,9 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          Protege cada lote.
+          {t.hero.title}
           <br />
-          <span className="text-gray-700">Fortalece tu reputación.</span>
+          <span className="text-gray-700">{t.hero.subtitle}</span>
         </motion.h1>
 
         <motion.p
@@ -42,8 +45,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          Trazabilidad simple con QR para identificar exactamente dónde se dañó un lote,
-          optimizar procesos y proteger la credibilidad de tu bodega.
+          {t.hero.description}
         </motion.p>
 
         <motion.div
@@ -57,7 +59,7 @@ export default function HeroSection() {
               href="/waitlist"
               className="inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-gray-800 w-full sm:w-auto transition-all duration-300 group"
             >
-              <span>Únete a la Lista de Espera</span>
+              <span>{t.hero.cta}</span>
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
@@ -74,19 +76,19 @@ export default function HeroSection() {
             <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="font-medium">Sin hardware especial</span>
+            <span className="font-medium">{t.hero.trustBadges.noHardware}</span>
           </div>
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="font-medium">Implementación en minutos</span>
+            <span className="font-medium">{t.hero.trustBadges.quickSetup}</span>
           </div>
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="font-medium">Trazabilidad premium</span>
+            <span className="font-medium">{t.hero.trustBadges.premium}</span>
           </div>
         </motion.div>
       </div>

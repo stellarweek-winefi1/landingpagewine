@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Wine, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
       {/* Final CTA Section */}
@@ -17,19 +20,18 @@ export default function Footer() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Protege tu legado. <br />
-            <span className="text-gray-300">Únete a Vinifica.</span>
+            {t.footer.ctaTitle} <br />
+            <span className="text-gray-300">{t.footer.ctaSubtitle}</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-            Sé parte de los primeros vinicultores en acceder a trazabilidad premium
-            con tecnología simple y verificable.
+            {t.footer.ctaDescription}
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/waitlist"
               className="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-lg font-semibold text-lg shadow-2xl hover:bg-gray-100 transition-all duration-300 group"
             >
-              <span>Acceso Temprano — Únete Ahora</span>
+              <span>{t.footer.ctaButton}</span>
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
@@ -47,7 +49,7 @@ export default function Footer() {
                 <span className="text-xl font-bold">Vinifica</span>
               </div>
               <p className="text-gray-400 text-sm text-center md:text-left">
-                Trazabilidad premium para vinicultores.
+                {t.footer.tagline}
               </p>
             </div>
 
@@ -57,28 +59,28 @@ export default function Footer() {
                 href="/waitlist"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                Lista de Espera
+                {t.footer.waitlist}
               </Link>
               <Link
                 href="/faq"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                FAQ
+                {t.nav.faq}
               </Link>
               <a
                 href="mailto:contacto@vinifica.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                Contacto
+                {t.footer.contact}
               </a>
             </div>
           </div>
 
           {/* Copyright */}
           <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-            <p>© {new Date().getFullYear()} Vinifica. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} Vinifica. {t.footer.copyright}</p>
             <p className="mt-2">
-              Diseñado para vinicultores que valoran la excelencia y la transparencia.
+              {t.footer.designedFor}
             </p>
           </div>
         </div>

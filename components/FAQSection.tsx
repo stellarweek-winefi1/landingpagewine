@@ -3,60 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
+import Link from "next/link";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
 
-  const faqs = [
-    {
-      question: "¿Desde qué dispositivos puedo usar Vinifica?",
-      answer: "Vinifica funciona desde cualquier dispositivo con cámara: smartphones, tablets, o computadoras. No necesitas hardware especial ni aplicaciones complejas.",
-    },
-    {
-      question: "¿Cómo funciona el sistema de QR?",
-      answer: "Cada lote recibe un código QR único. Al escanearlo con cualquier dispositivo, puedes registrar eventos, agregar notas, y ver el historial completo de trazabilidad del lote.",
-    },
-    {
-      question: "¿Puedo registrar eventos en cualquier momento?",
-      answer: "Sí. Vinifica permite registrar eventos en tiempo real desde cualquier ubicación: viñedo, bodega, transporte, almacenamiento, o distribución.",
-    },
-    {
-      question: "¿Ayuda a detectar problemas en la cadena de distribución?",
-      answer: "Absolutamente. Con cada evento registrado, puedes identificar exactamente dónde y cuándo ocurrió un problema, permitiéndote tomar acción inmediata y documentada.",
-    },
-    {
-      question: "¿Necesito sensores o hardware especializado?",
-      answer: "No. Vinifica está diseñado para funcionar sin hardware adicional. Solo necesitas los códigos QR de tus lotes y un dispositivo con cámara.",
-    },
-    {
-      question: "¿Es difícil comenzar a usar Vinifica?",
-      answer: "Para nada. El proceso es simple: genera QR para tus lotes, pégalos en las cajas o barricas, y empieza a escanear. Tu equipo puede aprender a usarlo en minutos.",
-    },
-    {
-      question: "¿Qué incluye la fase de venta de lotes?",
-      answer: "En la segunda fase, podrás listar tus lotes trazables en nuestra plataforma de marketplace, conectarte con compradores globales, y gestionar ventas con transacciones seguras.",
-    },
-    {
-      question: "¿El sistema funciona para exportación internacional?",
-      answer: "Sí. Vinifica está diseñado para cumplir con estándares internacionales de trazabilidad, facilitando la documentación para exportación y certificaciones.",
-    },
-    {
-      question: "¿Protege mi reputación ante distribuidores?",
-      answer: "Definitivamente. Con evidencia verificable de cada etapa, puedes demostrar que tu vino salió en perfectas condiciones de tu bodega, protegiendo tu marca ante cualquier reclamo.",
-    },
-    {
-      question: "¿Cómo se asegura la autenticidad del lote?",
-      answer: "Cada lote tiene un código QR único e inmutable. Los registros son verificables y no pueden ser alterados, garantizando la autenticidad de la trazabilidad.",
-    },
-    {
-      question: "¿Cuánto cuesta Vinifica?",
-      answer: "Estamos en fase de waitlist. Los primeros vinicultores que se unan tendrán acceso a condiciones especiales de lanzamiento. Únete a la lista para ser notificado.",
-    },
-    {
-      question: "¿Puedo usar Vinifica con mi equipo completo?",
-      answer: "Sí. Vinifica permite que todo tu equipo registre eventos: desde trabajadores en el viñedo hasta personal de almacén y logística. Todos con sus propios dispositivos.",
-    },
-  ];
+  const faqs = t.faq.questions;
 
   return (
     <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
@@ -70,10 +24,10 @@ export default function FAQSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Preguntas frecuentes
+            {t.faq.title}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Todo lo que necesitas saber sobre Vinifica
+            {t.faq.subtitle}
           </p>
         </motion.div>
 
@@ -126,13 +80,13 @@ export default function FAQSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-gray-600 mb-6">¿Tienes más preguntas?</p>
-          <a
+          <p className="text-gray-600 mb-6">{t.faq.moreQuestions}</p>
+          <Link
             href="/waitlist"
             className="inline-block bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-gray-800 transition-all duration-300"
           >
-            Únete al Waitlist
-          </a>
+            {t.faq.joinWaitlist}
+          </Link>
         </motion.div>
       </div>
     </section>

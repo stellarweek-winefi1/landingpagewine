@@ -5,18 +5,20 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Mail, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useLanguage();
 
   const countries = [
-    { code: "us", name: "Estados Unidos", flag: "🇺🇸" },
-    { code: "cl", name: "Chile", flag: "🇨🇱" },
-    { code: "ar", name: "Argentina", flag: "🇦🇷" },
-    { code: "other", name: "Otro", flag: "🌍" },
+    { code: "us", name: t.waitlist.countries.us, flag: "🇺🇸" },
+    { code: "cl", name: t.waitlist.countries.cl, flag: "🇨🇱" },
+    { code: "ar", name: t.waitlist.countries.ar, flag: "🇦🇷" },
+    { code: "other", name: t.waitlist.countries.other, flag: "🌍" },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,15 +49,15 @@ export default function WaitlistPage() {
           >
             <CheckCircle className="w-12 h-12 text-white" strokeWidth={2} />
           </motion.div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">¡Bienvenido a Vinifica!</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">{t.waitlist.successTitle}</h1>
           <p className="text-lg text-gray-600 mb-8">
-            Te hemos agregado a la lista de espera. Te notificaremos por email cuando lancemos.
+            {t.waitlist.successMessage}
           </p>
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-black font-semibold hover:gap-3 transition-all"
           >
-            Volver al inicio
+            {t.waitlist.backHome}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>
@@ -90,10 +92,10 @@ export default function WaitlistPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                Únete a la lista de espera
+                {t.waitlist.title}
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Sé de los primeros vinicultores en acceder a Vinifica y recibe condiciones especiales de lanzamiento.
+                {t.waitlist.description}
               </p>
             </motion.div>
           </div>
@@ -110,7 +112,7 @@ export default function WaitlistPage() {
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                   <Mail className="w-4 h-4 inline mr-2" />
-                  Email
+                  {t.waitlist.email}
                 </label>
                 <input
                   type="email"
@@ -118,7 +120,7 @@ export default function WaitlistPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="tu@email.com"
+                  placeholder={t.waitlist.emailPlaceholder}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
                 />
               </div>
@@ -127,7 +129,7 @@ export default function WaitlistPage() {
               <div>
                 <label htmlFor="country" className="block text-sm font-semibold text-gray-900 mb-3">
                   <Globe className="w-4 h-4 inline mr-2" />
-                  País / Región
+                  {t.waitlist.country}
                 </label>
                 <div className="space-y-3">
                   {countries.map((c) => (
@@ -166,11 +168,11 @@ export default function WaitlistPage() {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Procesando...</span>
+                    <span>{t.waitlist.processing}</span>
                   </>
                 ) : (
                   <>
-                    <span>Unirme a la Lista de Espera</span>
+                    <span>{t.waitlist.submit}</span>
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </>
                 )}
@@ -179,9 +181,9 @@ export default function WaitlistPage() {
 
             {/* Privacy Notice */}
             <p className="mt-6 text-center text-sm text-gray-500 leading-relaxed">
-              Solo usaremos tu correo para avisarte del lanzamiento de Vinifica.
+              {t.waitlist.privacy}
               <br />
-              No compartiremos tu información con terceros.
+              {t.waitlist.privacySecond}
             </p>
           </motion.div>
 
@@ -194,15 +196,15 @@ export default function WaitlistPage() {
           >
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-black" strokeWidth={2} />
-              <span>Acceso prioritario</span>
+              <span>{t.waitlist.trustBadges.priority}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-black" strokeWidth={2} />
-              <span>Condiciones especiales</span>
+              <span>{t.waitlist.trustBadges.special}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-black" strokeWidth={2} />
-              <span>Sin compromiso</span>
+              <span>{t.waitlist.trustBadges.noCommitment}</span>
             </div>
           </motion.div>
         </motion.div>
